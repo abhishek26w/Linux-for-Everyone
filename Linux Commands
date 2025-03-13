@@ -1,0 +1,105 @@
+whoami ( current logged-in username )
+ls (list)
+pwd ( present working Directory )
+cd ( change Directory )
+mkdir ( make a Directory )
+mv ( move )
+cp ( copy )
+rm ( remove )
+touch ( use for crreate new file )
+clear
+cat
+echo
+man
+uname
+tar
+grep
+head
+find
+tail
+diff
+export
+zip
+unzip
+ssh
+ps
+kill and killall
+df
+mount
+chmod ( using for file permission )
+chown ( using for change ownership )
+wget ( Download file from internet ) 
+cat
+top
+cat ( shows file info.)
+history 
+
+                     user management
+useradd < username >
+passwd abk ( create password)
+grep < user name > /etc/passwd ( account property )
+grep < username > /etc/shadow ( check password )
+su < username > ( switch username )
+"exit" or "ctrl +d" ( logout )
+sudo userdel -r < username >
+usermod ( modify a user's account properties )
+
+                  group management ( sudo su )
+
+groupadd < group name > ( create group )  
+cat /stc/group ( all group show )
+grep < group name > /etc/shadow ( group admin property )
+groupdel < group name > ( delete group )
+gpasswd -a < username > < group name > ( add single user )
+gpasswd -M < username > < username > < username > < group name > ( add Multiple user )
+gpasswd -d < username > < username > ( remove user names )
+gpasswd -A username groupname ( make group admin )
+
+for check file permission
+ls -l < file >.txt
+
+ grep use
+grep < word name > < file.txt > 
+grep -i <word name > < file name > ( For Incesitive file )
+
+  find use
+find < directory > -< file name > 
+( e.g. find /home -file.txt also you can find multiple files ->  find /home *txt) 
+
+awk use 
+its like a find command using for log file, table content
+awk ' { print $1 }' < file name > or awk ' { awk { print $1, $2 } ' < file name >
+
+head use
+head /etc/passwd ( show 10 top line )
+head -n 5 /etc/passwd ( show top line )
+
+tail use
+tail /etc/passwd ( show 10 tail line )
+tail -n 5 /etc/passwd ( show tail line )
+
+  vim use 
+Undo & Redo
+u & ctrl+r
+
+Navigate vim 
+h - left   k - up
+i - right  j - down
+
+Jump line
+gg - first line               G - last line
+:n - go to number of line
+
+Editing line
+i - insert mode        :w - save              :q! without save and exit
+a - exit insert mode   :wq - save and exit
+
+Delete
+x ( Delete )
+dd ( Delete Line )
+
+Change colorpallate of vim 
+:colorscheme < tab key >
+
+( Benefit of vim )
+speed, ease of use, light weight, Always Available, Customizable, Remotely Edit 
