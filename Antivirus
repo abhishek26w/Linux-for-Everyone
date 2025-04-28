@@ -1,0 +1,45 @@
+Create Antivirus ( for future use other wise avoid )
+
+vim virus_scan.sh
+
+RUN SCRIPT  
+chmod +x virus_scan.sh
+bash virus_scan.sh or ./virus_scan.sh
+
+THIS IS FULL SCRIPT
+
+#!/bin/bash
+
+# Linux Virus Scanner and Remover Script
+
+# Step 1: Install ClamAV if not installed
+if ! command -v clamscan &> /dev/null; then
+    echo "ClamAV not found. Installing..."
+    sudo apt update
+    sudo apt install -y clamav clamav-daemon
+else
+    echo "ClamAV is already installed."
+fi
+
+# Step 2: Stop ClamAV Freshclam service to update manually
+echo "Stopping Freshclam service..."
+sudo systemctl stop clamav-freshclam
+
+# Step 3: Update Virus Database
+echo "Updating virus database..."
+sudo freshclam
+
+# Step 4: Create a quarantine directory
+QUARANTINE_DIR="$HOME/virus_quarantine"
+mkdir -p "$QUARANTINE_DIR"
+echo "Quarantine directory created at $QUARANTINE_DIR"
+
+# Step 5: Scan system and move infected files to quarantine
+echo "Scanning the system... This may take a while."
+sudo clamscan -r --move="$QUARANTINE_DIR" --bell / 2>&1 | tee scan_report.txt
+
+# Step 6: Completion Message
+echo "Scan complete."
+echo "Infected files have been moved to: $QUARANTINE_DIR"
+echo "Scan report saved as scan_report.txt"
+
